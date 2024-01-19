@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import { greetUser } from '../src/cli.js';
 
@@ -8,6 +9,7 @@ const brain_even = () => {
         const randomNumber = Math.floor(Math.random() * 100);
         console.log(`Question: ${randomNumber}`);
         const userAnswer = readlineSync.prompt('Your answer: ');
+        // @ts-ignore
         const isEven = (num) => num % 2 === 0;
         if ((isEven(randomNumber) && userAnswer === 'yes') || (!isEven(randomNumber) && userAnswer === 'no')) {
             console.log('Correct!');
