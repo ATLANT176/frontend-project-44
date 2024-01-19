@@ -12,18 +12,19 @@ const brain_calc = () => {
         const operator = Math.floor(Math.random() * (operators.length));
         console.log('What is the result of the expression?');
         console.log(`Question: ${random1} ${operators[operator]} ${random2}`);
-        switch (operator) {
+        let rightAnswer = 0;
+        switch (operators[operator]) {
             case '+': 
                 rightAnswer = random1 + random2;
-            break;
+                break;
             case '-':
                 rightAnswer = random1 - random2;
-            break;
+                break;
             case '*':
                 rightAnswer = random1 * random2;
-            break;
+                break;
         }
-        const userAnswer = readlineSync.prompt('Your answer: ');
+        const userAnswer = parseInt(readlineSync.prompt('Your answer: '), 10);
         if (rightAnswer === userAnswer) {
             console.log('Correct!');
         } else {
