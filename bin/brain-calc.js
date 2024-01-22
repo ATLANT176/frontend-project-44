@@ -1,33 +1,35 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import { greetUser } from '../src/cli.js';
+
 const operators = ['+', '-', '*'];
-const brain_calc = () => {
+const generateRandomNumber = () => Math.floor(Math.random() * 100);
+const generateRandomOperator = () => operators[Math.floor(Math.random() * operators.length)];
+const calculateExpression = (num1, num2, operator) => {
+    switch (operator) {
+        case '+': return num1 + num2;
+        case '-': return num1 - num2;
+        case '*': return num1 * num2;
+    }
+}
+const brainCalc = () => {
     const name = greetUser();
     for (let i = 0; i < 3; i++) {
-        const random1 = Math.floor(Math.random() * 100);
-        const random2 = Math.floor(Math.random() * 100);
-        const operator = Math.floor(Math.random() * (operators.length));
+        const random1 = generateRandomNumber();
+        const random2 = generateRandomNumber();
+        const operator = generateRandomOperator();
         console.log('What is the result of the expression?');
-        console.log(`Question: ${random1} ${operators[operator]} ${random2}`);
+        console.log(`Question: ${random1} ${operator} ${random2}`);
         const userAnswer = readlineSync.prompt('Your answer:');
-        let rightAnswer = 0;
-        switch (operators[operator]) {
-            case '+': 
-                rightAnswer = random1 + random2;
-                break;
-            case '-':
-                rightAnswer = random1 - random2;
-                break;
-            case '*':
-                rightAnswer = random1 * random2;
-                break;
-        }
-        if (rightAnswer === parseInt(userAnswer)) {console.log('Correct!');}
-        else {console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`);
+        const rightAnswer = calculateExpression(random1, random2, operator);
+        if (rightAnswer === parseInt(userAnswer)) {
+            console.log('Correct!');
+        } else {
+            console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${rightAnswer}'`);
             console.log(`Let's try again, ${name}!`);
-            return;}
+            return;
+        }
     }
     console.log(`Congratulations, ${name}!`);
 }
-export default brain_calc();
+export default brainCalc();
