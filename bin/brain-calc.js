@@ -1,40 +1,40 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { greetUser } from '../src/cli.js';
+import readlineSync from 'readline-sync'
+import { greetUser } from '../src/cli.js'
 
-const operators = ['+', '-', '*'];
+const operators = ['+', '-', '*']
 
-const generateRandomNumber = () => Math.floor(Math.random() * 100);
+const generateRandomNumber = () => Math.floor(Math.random() * 100)
 
-const generateRandomOperator = () => operators[Math.floor(Math.random() * operators.length)];
+const generateRandomOperator = () => operators[Math.floor(Math.random() * operators.length)]
 
 const calculateExpression = (num1, num2, operator) => {
-    switch (operator) {
-        case '+': return num1 + num2;
-        case '-': return num1 - num2;
-        case '*': return num1 * num2;
-    }
+  switch (operator) {
+    case '+': return num1 + num2
+    case '-': return num1 - num2
+    case '*': return num1 * num2
+  }
 }
 
 export const brainCalc = () => {
-    const name = greetUser();
-    for (let i = 0; i < 3; i++) {
-        const random1 = generateRandomNumber();
-        const random2 = generateRandomNumber();
-        const operator = generateRandomOperator();
-        console.log('What is the result of the expression?');
-        console.log(`Question: ${random1} ${operator} ${random2}`);
-        const userAnswer = readlineSync.question('Your answer:');
-        const rightAnswer = calculateExpression(random1, random2, operator);
-        if (rightAnswer === parseInt(userAnswer)) {
-            console.log('Correct!');
-        } else {
-            console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${rightAnswer}'`);
-            console.log(`Let's try again, ${name}!`);
-            return;
-        }
+  const name = greetUser()
+  console.log('What is the result of the expression?')
+  for (let i = 0; i < 3; i++) {
+    const random1 = generateRandomNumber()
+    const random2 = generateRandomNumber()
+    const operator = generateRandomOperator()
+    console.log(`Question: ${random1} ${operator} ${random2}`)
+    const userAnswer = readlineSync.question('Your answer:')
+    const rightAnswer = calculateExpression(random1, random2, operator)
+    if (rightAnswer === parseInt(userAnswer)) {
+      console.log('Correct!')
+    } else {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${rightAnswer}'`)
+      console.log(`Let's try again, ${name}!`)
+      return
     }
-    console.log(`Congratulations, ${name}!`);
+  }
+  console.log(`Congratulations, ${name}!`)
 }
 
-export default brainCalc();
+export default brainCalc()
