@@ -20,21 +20,21 @@ export const brainCalc = () => {
   const name = greetUser()
   console.log('What is the result of the expression?')
   for (let i = 0; i < 3; i++) {
-    const random1 = generateRandomNumber()
-    const random2 = generateRandomNumber()
-    const operator = generateRandomOperator()
-    console.log(`Question: ${random1} ${operator} ${random2}`)
-    const userAnswer = readlineSync.question('Your answer:')
-    const rightAnswer = calculateExpression(random1, random2, operator)
+    const random1 = generateRandomNumber();
+    const random2 = generateRandomNumber();
+    const operator = generateRandomOperator();
+    console.log(`Question: ${random1} ${operator} ${random2}`);
+    const userAnswer = readlineSync.question('Your answer:');
+    const rightAnswer = calculateExpression(random1, random2, operator);
     if (rightAnswer === parseInt(userAnswer)) {
-      console.log('Correct!')
+      console.log('Correct!');
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${rightAnswer}'`)
-      console.log(`Let's try again, ${name}!`)
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${rightAnswer}'`);
+      console.log(`Let's try again, ${name}!`);
       return
     }
   }
-  console.log(`Congratulations, ${name}!`)
+  console.log(`Congratulations, ${name}!`);
 }
 
 export default brainCalc()
