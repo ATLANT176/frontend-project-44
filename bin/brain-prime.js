@@ -4,14 +4,18 @@ import { greetUser } from '../src/cli.js'
 import { gameStart, lose } from '../src/index.js'
 
 function checkPrime(number) {
-    let isPrime = true;
-    for (let i = 2; i < Math.sqrt(number); i += 1) {
-        if (number % i === 0) {
-            isPrime = false;
-            break
-        } 
+    if (number <= 1) {
+        return 'no';
+    } else if (number === 2) {
+        return 'yes';
+    } else {
+        for (let i = 2; i <= Math.sqrt(number); i += 1) {
+            if (number % i === 0) {
+                return 'no';
+            } 
+        }
+        return 'yes';
     }
-    return isPrime ? 'yes' : 'no'
 }
 
 const generateMaxNumber = () => {
