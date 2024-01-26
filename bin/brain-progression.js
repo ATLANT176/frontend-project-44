@@ -39,6 +39,7 @@ function brainProgression () {
   const hidden = getRandomInt(0, progressionLen - 1)
   const progression = generateProgression(progressionStart, progressionLen, progressionStep)
   const correctAnswer = progression[hidden]
+  console.log('What number is missing in the progression?')
   console.log(`Question: ${showProgression(progression, hidden)}`)
   const userAnswer = readlineSync.question('Your answer: ')
   if (parseInt(userAnswer, 10) === correctAnswer) {
