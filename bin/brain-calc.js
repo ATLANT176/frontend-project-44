@@ -27,7 +27,7 @@ export const brainCalc = () => {
     console.log(`Question: ${random1} ${operator} ${random2}`);
     const userAnswer = readlineSync.question('Your answer:');
     const rightAnswer = calculateExpression(random1, random2, operator);
-    if (rightAnswer === parseInt(userAnswer), 10) {
+    if (rightAnswer === parseInt(userAnswer)) {
       console.log('Correct!');
     } else {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${rightAnswer}'`);
