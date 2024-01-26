@@ -15,7 +15,7 @@ const calculateExpression = (num1, num2, operator) => {
     case '*': return num1 * num2;
     default: return 0;
   }
-}
+};
 
 export const brainCalc = () => {
   const name = greetUser();
@@ -27,7 +27,7 @@ export const brainCalc = () => {
     console.log(`Question: ${random1} ${operator} ${random2}`);
     const userAnswer = readlineSync.question('Your answer:');
     const rightAnswer = calculateExpression(random1, random2, operator);
-    if (rightAnswer === parseInt(userAnswer)) {
+    if (rightAnswer === parseInt(userAnswer), 10) {
       console.log('Correct!');
     } else {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${rightAnswer}'`);
@@ -36,6 +36,6 @@ export const brainCalc = () => {
     }
   }
   console.log(`Congratulations, ${name}!`);
-}
+};
 
 export default brainCalc();
