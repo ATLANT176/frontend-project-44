@@ -1,4 +1,3 @@
-// @ts-expect-error
 export function gameStart (name, gameName, repeats) {
   for (let i = 0; i < repeats; i += 1) {
     if (gameName(name) === 1) {
@@ -11,7 +10,6 @@ export function gameStart (name, gameName, repeats) {
   return 1
 }
 
-// @ts-expect-error
 export function lose (userAnswer, correctAnswer, name) {
   console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}`)
   console.log(`Let's try again, ${name}!`)
