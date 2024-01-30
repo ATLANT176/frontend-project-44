@@ -7,17 +7,16 @@ const generateRandomNumber = () => Math.floor(Math.random() * 100);
 const askQuestion = (number) => {
   console.log(`Question: ${number}`);
   return readlineSync.question('Your answer: ');
-}
+};
 
 const checkAnswer = (randomNumber, userAnswer) => {
   if ((isEven(randomNumber) && userAnswer === 'yes') || (!isEven(randomNumber) && userAnswer === 'no')) {
     console.log('Correct!');
     return true;
-  } else {
-    console.log(`${userAnswer} is wrong answer ;(. Correct answer was 'no'`);
-    return false;
   }
-}
+  console.log(`${userAnswer} is wrong answer ;(. Correct answer was 'no'`);
+  return false;
+};
 
 const braineven = () => {
   const name = greetUser();
@@ -32,6 +31,6 @@ const braineven = () => {
     }
   }
   console.log(`Congratulations, ${name}!`);
-}
+};
 
 export default braineven();

@@ -10,7 +10,7 @@ const gcd = (a, b) => {
     return a;
   }
   return gcd(b, a % b);
-}
+};
 
 const generateRandomNumber = () => Math.floor(Math.random() * 100) + 1;
 
@@ -24,11 +24,10 @@ const brainGCD = (name) => {
   const correctAnswer = gcd(number1, number2).toString();
   if (userAnswer === correctAnswer) {
     return 1;
-  } else {
-    lose(userAnswer, correctAnswer, name);
-    return 0;
   }
-}
+  lose(userAnswer, correctAnswer, name);
+  return 0;
+};
 
 const gameName = brainGCD;
 const name = greetUser();

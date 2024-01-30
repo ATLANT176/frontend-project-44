@@ -8,7 +8,7 @@ const progressMinLen = 5;
 const progressionMaxStep = 10;
 const progressionMaxStart = 50;
 
-function getRandomInt (min, max) {
+function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -18,7 +18,7 @@ const generateProgression = (start, len, step) => {
     mass.push(start + (i * step));
   }
   return mass;
-}
+};
 
 const showProgression = (mass, index) => {
   let str = '';
@@ -30,9 +30,9 @@ const showProgression = (mass, index) => {
     }
   }
   return str;
-}
+};
 
-function brainProgression () {
+function brainProgression() {
   const progressionStart = getRandomInt(0, progressionMaxStart);
   const progressionStep = getRandomInt(1, progressionMaxStep);
   const progressionLen = getRandomInt(progressMinLen, progressMaxLen);
@@ -44,10 +44,10 @@ function brainProgression () {
   const userAnswer = readlineSync.question('Your answer: ');
   if (parseInt(userAnswer, 10) === correctAnswer) {
     return 1;
-  } else {
-    lose(userAnswer, correctAnswer, name);
-    return 0;
   }
+  // eslint-disable-next-line no-use-before-define
+  lose(userAnswer, correctAnswer, name);
+  return 0;
 }
 
 const gameName = brainProgression;

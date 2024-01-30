@@ -1,6 +1,6 @@
 extends:
   - airbnb-base
-module-exports:
-  rules:
-    no-console: off
-    import/extensions: off
+
+rules:
+  no-console: off
+  import/extensions: off
