@@ -53,4 +53,4 @@ function brainProgression() {
 const gameName = brainProgression;
 const name = greetUser();
 gameStart(name, gameName, 3);
-//ATLANT
+// ATLANT

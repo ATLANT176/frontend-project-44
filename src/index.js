@@ -21,13 +21,12 @@ export function lose(userAnswer, correctAnswer, name) {
 export function duplicates(correctAnswer, answer, name) {
   if (correctAnswer === answer) {
     return 1;
-  } else {
-    console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}`);
-    console.log(`Let's try again, ${name}!`);
-    return 0;
   }
-};
+  console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}`);
+  console.log(`Let's try again, ${name}!`);
+  return 0;
+}
 
 export function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
-};
+}

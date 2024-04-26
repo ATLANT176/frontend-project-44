@@ -14,10 +14,10 @@ function brainEven(name) {
   const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
   duplicates(correctAnswer, userAnswer, name);
   return userAnswer === correctAnswer ? 1 : 0;
-};
+}
 
 const gameName = brainEven;
 const name = greetUser();
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 gameStart(name, gameName, 3);
-//ATLANT
+// ATLANT

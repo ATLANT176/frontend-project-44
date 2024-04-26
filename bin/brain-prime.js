@@ -36,4 +36,4 @@ const brainPrime = () => {
 const gameName = brainPrime;
 const name = greetUser();
 gameStart(name, gameName, 3);
-//ATLANT
+// ATLANT

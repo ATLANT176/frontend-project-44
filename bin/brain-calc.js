@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { greetUser } from '../src/cli.js'
+import { greetUser } from '../src/cli.js';
 import { gameStart, lose } from '../src/index.js';
 
 const operators = ['+', '-', '*'];
@@ -18,7 +18,7 @@ const calculateExpression = (num1, num2, operator) => {
   }
 };
 
-export const brainCalc = (name) => {
+const brainCalc = (name) => {
   console.log('What is the result of the expression?');
   for (let i = 0; i < 3; i += 1) {
     const random1 = generateRandomNumber();
@@ -30,10 +30,10 @@ export const brainCalc = (name) => {
     if (parseInt(userAnswer, 10) === rightAnswer) {
       return 1;
     }
-    lose(userAnswer, rightAnswer, name); 
-    return 0;
+    lose(userAnswer, rightAnswer, name);
   }
   console.log(`Congratulations, ${name}!`);
+  return 0;
 };
 
 const gameName = brainCalc;
