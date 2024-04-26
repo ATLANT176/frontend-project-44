@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { greetUser } from '../src/cli.js';
+import { greetUser } from '../src/cli.js'
+import { gameStart, lose } from '../src/index.js';
 
 const operators = ['+', '-', '*'];
 
@@ -17,9 +18,7 @@ const calculateExpression = (num1, num2, operator) => {
   }
 };
 
-export const brainCalc = () => {
-  const name = greetUser();
-  console.log('What is the result of the expression?');
+export const brainCalc = (name) => {
   for (let i = 0; i < 3; i += 1) {
     const random1 = generateRandomNumber();
     const random2 = generateRandomNumber();
@@ -27,15 +26,15 @@ export const brainCalc = () => {
     console.log(`Question: ${random1} ${operator} ${random2}`);
     const userAnswer = readlineSync.question('Your answer:');
     const rightAnswer = calculateExpression(random1, random2, operator);
-    if (rightAnswer === parseInt(userAnswer, 10)) {
-      console.log('Correct!');
-    } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${rightAnswer}'`);
-      console.log(`Let's try again, ${name}!`);
-      return;
+    if (parseInt(userAnswer, 10) === rightAnswer) {
+      return 1;
     }
+    lose(userAnswer, rightAnswer, name); 
+    return 0;
   }
   console.log(`Congratulations, ${name}!`);
 };
 
-export default brainCalc();
+const gameName = brainCalc;
+const name = greetUser();
+gameStart(name, gameName, 3);

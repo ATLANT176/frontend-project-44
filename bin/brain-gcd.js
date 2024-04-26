@@ -32,3 +32,4 @@ const brainGCD = (name) => {
 const gameName = brainGCD;
 const name = greetUser();
 gameStart(name, gameName, 3);
+//ATLANT
