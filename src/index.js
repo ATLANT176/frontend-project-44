@@ -30,3 +30,5 @@ export const answerCheck = (answer, correctAnswer) => {
   const isCorrect = parsedAnswer === correctAnswer;
   return isCorrect ? 1 : 0;
 };
+
+
